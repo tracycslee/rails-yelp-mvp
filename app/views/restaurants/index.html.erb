@@ -1,0 +1,26 @@
+<h1>Restaurant List </h1>
+<%= link_to "Click here to add a new restaurant", "/restaurants/new" %>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Cuisine</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |res| %>
+      <tr>
+        <td><%= link_to res.name.capitalize, restaurant_path(res) %>
+        </td>
+        <td>
+          <p> <%= res.address %> </p>
+        </td>
+        <td><%= res.category.capitalize %></td>
+        <td><%= res.phone_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

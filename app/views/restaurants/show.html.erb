@@ -1,0 +1,16 @@
+<h1>Restaurant List </h1>
+<%= link_to "Click here to return to home page", restaurants_path %>
+<h2>Restaurant Name: @restaurant.name.Capitalize </h2>
+<ul>
+  <p> Address :   <%= @restaurant.address %> </p>
+  <p> Cuisine :   <%= @restaurant.category.capitalize %> </p>
+  <p> Phone No.:  <%= @restaurant.phone_number %> </p>
+  <p> Review: </p>
+  <% @restaurant.reviews.each do |review| %>
+    <ul>
+      <li> Rating: <%= review.rating %> </li>
+      <li> Comments: <%= review.content %> </li>
+    </ul>
+  <% end %>
+</ul>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
